@@ -2,13 +2,13 @@
 using namespace std;
 
 int main(){
-    int arr[5];
+    int arr[]={1,2,3,4,5};
     int brr[5];
 
-    for(int i=0;i<5;i++){
-        cout<<endl<<"Enter the number : ";
-        cin>>arr[i];
-    }
+    // for(int i=0;i<5;i++){
+    //     cout<<endl<<"Enter the number : ";
+    //     cin>>arr[i];
+    // }
     for(int i=0;i<5;i++){
         brr[4-i]=arr[i];
     }
