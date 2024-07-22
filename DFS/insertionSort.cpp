@@ -9,7 +9,7 @@ int main()
     int p = 0;
     int temp = 0;
 
-    while (i <6)
+    while (i < 6)
     {
         // cout <<endl<< "enter the " << i << " : ";
         // cin >> a[i];
@@ -17,15 +17,18 @@ int main()
         temp = a[i];
         p = i - 1;
 
-        while(temp<a[p] && p>=0){
+        while (temp < a[p] && p >= 0)
+        {
             a[p + 1] = a[p];
             a[p] = temp;
             p -= 1;
         }
         i++;
     }
-    cout <<endl<<"Array all element : ";
-    for (int i = 0; i < 6;i++){
+    cout << endl
+         << "Array all element : ";
+    for (int i = 0; i < 6; i++)
+    {
         cout << a[i] << " ";
     }
 }
