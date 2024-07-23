@@ -2,7 +2,7 @@
 #include <algorithm>
 using namespace std;
 
-int main()
+int main() // the consept of bubble sort
 {
     int arr[9] = {5, 0, 2, 0, 0, 3, 4, 0, 1};
     int n = sizeof(arr) / sizeof(int);

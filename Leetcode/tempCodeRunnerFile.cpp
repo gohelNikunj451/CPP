@@ -1,1 +1,1 @@
-arr[i] == target or arr[i + 1] == target
+, 2, 3, 4, 5

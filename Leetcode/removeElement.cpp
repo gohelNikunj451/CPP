@@ -1,6 +1,8 @@
 #include <iostream>
 #include <algorithm>
 
+//consept of bubble sort
+
 using namespace std;
 
 int main()

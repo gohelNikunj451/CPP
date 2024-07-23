@@ -9,6 +9,7 @@ bool primeOrNot(int n)
         if (n % i == 0)
         {
             flag = false;
+            break;
         }
     }
     return flag;

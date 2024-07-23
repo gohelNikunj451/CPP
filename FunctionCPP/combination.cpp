@@ -10,7 +10,7 @@ int factorial(int n){
     return fact;
 }
 int combi(int n,int r){
-    ;
+    
     
     return factorial(n)/(factorial(n-r)*factorial(r));
 }
