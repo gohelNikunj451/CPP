@@ -25,17 +25,18 @@ public:
         this->dept = dept;
         this->salary = salary;
     }
-    teacher(teacher &OrgObj){ //custom copy constructor
+    teacher(teacher &OrgObj)
+    { // custom copy constructor
         cout << "hello I am custom copy constructor";
         this->name = OrgObj.name;
         this->dept = OrgObj.dept;
-        this->salary = OrgObj.salary;
+        this->salary = 2332;
     }
 };
 
 int main()
 {
     teacher t1("nikunj", "1A", 50000); // object
-    teacher t2(t1);//default copy constructor -invoke 
+    teacher t2(t1);                    // default copy constructor -invoke
     t2.getInfo();
 }

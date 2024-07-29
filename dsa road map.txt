@@ -1,0 +1,23 @@
+dsa road map
+
+backtracking
+prefix sum
+sliding window
+
+
+linked list
+stack queus
+map set stl
+
+
+greedy algorithm
+backtracking algorithm
+recursion
+
+dynamic programming
+
+graphs
+tries
+genric treis
+segment tree
+

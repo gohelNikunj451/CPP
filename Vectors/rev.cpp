@@ -13,7 +13,7 @@ int main()
         v[i] = i + 1;
     }
 
-    reverse(v.begin(), v.end()-2);
+    reverse(v.begin(), v.end());
     
     for (int i = 0; i < 5; i++)
     {

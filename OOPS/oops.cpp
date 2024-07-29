@@ -8,7 +8,7 @@ public:          // access modifier
     string name; // data member
     string dept;
 
-private:
+private: // access modifier
     int salary;
 
     void setSalary(int s)
@@ -19,7 +19,7 @@ private:
 
 int main()
 {
-    teacher t1; // declar variable
+    teacher t1; // object
     cout << "Enter teacher name : ";
     cin >> t1.name; // access data member
     cout << endl
