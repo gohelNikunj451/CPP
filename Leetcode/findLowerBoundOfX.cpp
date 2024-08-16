@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 7, 8};
+    int arr[] = {1, 2, 3, 4, 5, 8, 8};
 
     int target, index;
     bool flag = false;

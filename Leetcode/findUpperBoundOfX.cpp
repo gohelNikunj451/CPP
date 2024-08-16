@@ -26,7 +26,7 @@ int main()
         }
         else
         {
-            cout << "hello";
+
             index = mid;
             break;
         }
