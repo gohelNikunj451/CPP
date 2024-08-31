@@ -44,7 +44,7 @@ int main()
 
     for (int i = 0; i < n; i++)
     {
-        for (int j = i; j < n; j++) // instead 0 to i ,if value two time swap then transpose is not work properly
+        for (int j = i; j < n; j++) // instead of 0 is i ,if value two time swap then transpose is not work properly
         {
             int temp = arr[i][j];
             arr[i][j] = arr[j][i];

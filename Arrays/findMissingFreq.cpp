@@ -18,6 +18,7 @@ int main()
     }
 
     sum2 = (99 * (99 + 1)) / 2;
+    // n(n+1)/2
 
     cout << endl
          << "Missing frequencu is : " << sum2 - sum1;

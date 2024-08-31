@@ -3,5 +3,6 @@
         "iostream": "cpp",
         "ostream": "cpp"
     },
-    "C_Cpp.errorSquiggles": "enabled"
+    "C_Cpp.errorSquiggles": "enabled",
+    "editor.fontFamily": " Cascadia Code , Cascadia Mono"
 }

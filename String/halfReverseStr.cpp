@@ -9,7 +9,7 @@ int main()
     getline(cin, name);
 
     int i = 0;
-    int j = name.length() / 2-1;
+    int j = name.length();
 
     while (i < j)
     {
