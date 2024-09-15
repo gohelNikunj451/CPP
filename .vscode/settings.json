@@ -4,5 +4,6 @@
         "ostream": "cpp"
     },
     "C_Cpp.errorSquiggles": "enabled",
-    "editor.fontFamily": " Cascadia Code , Cascadia Mono"
+    "editor.fontFamily": "\"JetBrains Mono\"",
+    "editor.fontSize": 12
 }
