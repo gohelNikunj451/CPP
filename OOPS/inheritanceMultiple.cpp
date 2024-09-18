@@ -28,4 +28,5 @@ int main()
 {
     Car c;
     c.topSpeed = 200;
+    cout << "Car top speed : "<<c.topSpeed;
 }

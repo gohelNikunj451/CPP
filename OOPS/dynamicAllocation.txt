@@ -1,0 +1,10 @@
+There are two types of method of memory allocation 
+1.static allocation
+2.dynamic allocation
+
+1.static allocation : this allocation complete when compile time
+  example : int arr[10] -> 10 block of memory occupie in compile time
+
+2. dynamic allocation : thins allocation complete when run time
+  example : int * num = new int(23);
+  -> in this method memory occupie as we requirement 

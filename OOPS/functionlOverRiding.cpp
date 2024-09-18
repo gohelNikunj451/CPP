@@ -41,4 +41,5 @@ int main()
   s1->sound();
   Scooty *s2 = new SuperBike();
   s2->sound();
+  
 }
