@@ -2,7 +2,8 @@
     "files.associations": {
         "iostream": "cpp",
         "ostream": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "stdio.h": "c"
     },
     "C_Cpp.errorSquiggles": "enabled",
     "editor.fontFamily": "\"JetBrains Mono\"",
