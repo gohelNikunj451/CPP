@@ -15,7 +15,7 @@ int main()
     {
       s.push(pare[i]);
     }
-    else
+    else // ) } ]
     {
       if (s.empty())
       {

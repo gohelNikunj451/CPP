@@ -58,8 +58,7 @@ Node *removeDuplicateFromLinkedList(Node *&Head)
       prev = prev->next;
       curr = curr->next;
     }
-    cout << " he";
-  }
+    }
   return Head;
 }
 int main()

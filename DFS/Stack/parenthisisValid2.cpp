@@ -12,13 +12,21 @@ bool checkValid(string str)
     }
     else
     {
-      if (s.empty())
+
+      if (str[i] == ')')
       {
-        return 0;
-      }
-      else
-      {
-        s.pop();
+        if (s.empty())
+        {
+          return 0;
+        }
+        else if (s.top() == '(')
+        {
+          s.pop();
+        }
+        else
+        {
+          return false;
+        }
       }
     }
   }

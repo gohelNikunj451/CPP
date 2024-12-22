@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-  int arr[] = {1, 2, 3, 4, 5};
+  int arr[] = {1, 4, 3, 2, 5, 0};
   int left = 0;
   int right = sizeof(arr) / sizeof(int) - 1;
 
@@ -14,11 +14,11 @@ int main()
     {
       swap(arr[left++], arr[right--]);
     }
-    if (arr[left] % 2 == 0)
+    else if (arr[left] % 2 == 0)
     {
       left++;
     }
-    if (arr[right] % 2 != 0)
+    else if (arr[right] % 2 != 0)
     {
       right--;
     }

@@ -14,11 +14,11 @@ int main()
         {
             if (min > arr[j])
             {
-                min = arr[j];
-                mindex = j;
+                min = arr[j]; // last sallest value of arr[j] iteration
+                mindex = j;   // last smallest value index of arr[j] iteration
             }
         }
-        swap(arr[i], arr[mindex]);
+        swap(arr[i], arr[mindex]); // small value fix in it's specific position and swap thse two value
     }
     cout << "Sorted Array : ";
 

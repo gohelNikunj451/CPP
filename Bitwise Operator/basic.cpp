@@ -12,7 +12,7 @@ int main()
   cout << endl
        << (a ^ b); // xor (xclusive or) if binary bits are same then answer is 0 other wise 1
   cout << endl
-       << (a << 1); // left shift example : 1000 -> 10000
+       << (a << 3); // left shift example : 1000 -> 10000
   cout << endl
-       << (a >> 1); // right shift example : 1000 -> 100
+       << (a >> 2); // right shift example : 1000 -> 100
 }

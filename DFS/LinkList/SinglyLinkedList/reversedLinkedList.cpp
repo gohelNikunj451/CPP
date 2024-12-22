@@ -36,7 +36,7 @@ void printNode(Node *&Head)
     temp = temp->next;
   }
 }
-Node * reverseNode(Node *&Head)
+Node *reverseNode(Node *&Head)
 {
   Node *pre = NULL;
   Node *fut = Head;

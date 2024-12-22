@@ -18,11 +18,33 @@ bool primeOrNot(int n)
 int main()
 {
 
-    for (int i = 2; i < 10; i++)
+    // for (int i = 2; i < 10; i++)
+    // {
+    //     if (primeOrNot(i))
+    //     {
+    //         cout << i << " ";
+    //     }
+    // }
+    int i = 0;
+    int n;
+    cout << "Enter the N : ";
+    cin >> n;
+    while (i <= n)
     {
-        if (primeOrNot(i))
+        int j = i, k = 2, flag = 0;
+        while (k < j)
+        {
+            if (j % k == 0)
+            {
+                flag = 1;
+                break;
+            }
+            k++;
+        }
+        if (!flag)
         {
             cout << i << " ";
         }
+        i++;
     }
 }

@@ -55,7 +55,7 @@ int main()
   {
     inFromStart(Head, i);
   }
-  for (int i = 3; i >= 1; i--)
+  for (int i = 3; i >= 0; i--)
   {
     inFromStart(Head, i);
   }

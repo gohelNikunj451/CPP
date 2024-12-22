@@ -12,11 +12,9 @@ void create() // for create Linked List
 
   if (Head == NULL)
   {
-    int temp_data;
-    printf("\n Enter the data of NOde  : ");
-    scanf("%d", &temp_data);
     Head = (Node *)malloc(sizeof(Node));
-    Head->data = temp_data;
+    printf("\n Enter the data of NOde  : ");
+    scanf("%d", &Head->data);
     Head->next = NULL;
   }
   else

@@ -57,10 +57,10 @@ int main()
 
     student s3 = s1; // deep copy
     s3.cgpa = 1;
+    s3.showInfo();
+
     student s4(s1); // copy constructor - deep copy //default copy constructor
     s4.cgpa = 5;
-
     s3.showInfo();
     s4.showInfo();
-    
 }

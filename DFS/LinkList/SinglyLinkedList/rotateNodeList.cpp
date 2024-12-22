@@ -63,11 +63,11 @@ Node *rotateNode(Node *&Head, int x)
 int main()
 {
   Node *Head = NULL;
-  for (int i = 1; i <= 1; i++)
+  for (int i = 1; i <= 10; i++)
   {
     inFromStart(Head, i);
   }
   printNode(Head);
-  Head = rotateNode(Head, 11);
+  Head = rotateNode(Head, 2);
   printNode(Head);
 }
