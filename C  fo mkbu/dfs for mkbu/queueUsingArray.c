@@ -7,7 +7,7 @@ void insert()
 {
   if (rear == size - 1)
   {
-    printf("\nStack is full");
+    printf("\nqueue is full");
     return;
   }
   else
@@ -24,7 +24,7 @@ void delete()
 {
   if (front == -1 || front > rear)
   {
-    printf("\nstack is empty");
+    printf("\nqueue is empty");
     front = rear = -1;
     return;
   }
@@ -37,7 +37,7 @@ void display()
 {
   if (front == -1 || front > rear)
   {
-    printf("\nStack is empty");
+    printf("\nqueue is empty");
     return;
   }
   else

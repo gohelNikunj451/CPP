@@ -32,7 +32,7 @@ int main()
     while (i <= n)
     {
         int j = i, k = 2, flag = 0;
-        while (k < j)
+        while (k <= j / 2)
         {
             if (j % k == 0)
             {
