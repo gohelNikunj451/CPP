@@ -36,7 +36,7 @@ void insert(int val)
         }
         else
         {
-            i = 2 * i + 2;
+            i = 2 * i + 2; 
         }
         if (i >= size)
         {

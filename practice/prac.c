@@ -1,197 +1,179 @@
 #include <stdio.h>
-#include <conio.h>
-#include <malloc.h>
-
-struct Node
+#include <stdlib.h>
+int *visited = NULL;
+int **memoryAlloc(int **adjMatrix, int vertices)
 {
-  int vertex;
-  struct Node *next;
-};
-typedef struct Node Node;
-struct Graph
-{
-  int vertices;
-  Node **adjList;
-};
-typedef struct Graph Graph;
-Node *createNode(int vertex)
-{
-  Node *newNode = (Node *)malloc(sizeof(Node));
-  newNode->vertex = vertex;
-  newNode->next = NULL;
-  return newNode;
-}
-Graph *createGraph(int vertices)
-{
-  Graph *newGraph = (Graph *)malloc(sizeof(Graph));
-  newGraph->vertices = vertices;
-  newGraph->adjList = (Node **)malloc(vertices * sizeof(Node *));
+  adjMatrix = (int **)malloc(sizeof(int *) * vertices);
   for (int i = 0; i < vertices; i++)
   {
-    newGraph->adjList[i] = NULL;
+    adjMatrix[i] = (int *)malloc(sizeof(int) * vertices);
   }
-  return newGraph;
+  return adjMatrix;
 }
-Graph *addEdge(Graph *graph)
+int **createGraph(int **adjMatrix, int vertices)
+{
+  if (adjMatrix != NULL)
+  {
+    printf("\nGraph is already created");
+    return adjMatrix;
+  }
+  adjMatrix = memoryAlloc(adjMatrix, vertices);
+
+  for (int i = 0; i < vertices; i++)
+  {
+    for (int j = 0; j < vertices; j++)
+    {
+      adjMatrix[i][j] = 0;
+    }
+  }
+  printf("\nGraph created successfully");
+  return adjMatrix;
+}
+int **insertEdges(int **adjMatrix, int vertices)
+{
+  int edges;
+  int src, dest;
+  printf("\nEnter no of edges : ");
+  scanf("%d", &edges);
+  for (int i = 1; i <= edges; i++)
+  {
+  A:
+    printf("\nEnter src -> dest : ");
+    scanf("%d %d", &src, &dest);
+
+    if (src < 0 || dest < 0 || src >= vertices || dest >= vertices)
+    {
+      printf("\nInvalid src to dest");
+      goto A;
+    }
+    adjMatrix[src][dest] = 1;
+    adjMatrix[dest][src] = 1;
+    printf("\n%d -> %d successfully linked", src, dest);
+  }
+  return adjMatrix;
+}
+int **deleteEdges(int **adjMatrix, int vertices)
 {
   int src, dest;
-  printf("Enter src : ");
-  scanf("%d", &src);
-  printf("Enter dest : ");
-  scanf("%d", &dest);
-
-  if (src >= graph->vertices || dest >= graph->vertices || src < 0 || dest < 0)
-  {
-    printf("\nInvlid SRC or DEST ");
-    return graph;
-  }
-  // directed Graph
-  Node *newNode = createNode(dest);
-  if (graph->adjList[src] == NULL)
-  {
-    graph->adjList[src] = newNode;
-  }
-  else
-  {
-    Node *temp = graph->adjList[src];
-    while (temp->next)
-    {
-      temp = temp->next;
-    }
-    temp->next = newNode;
-  }
-
-  // undirected Graph
-  newNode = createNode(src);
-  if (graph->adjList[dest] == NULL)
-  {
-    graph->adjList[dest] = newNode;
-  }
-  else
-  {
-    Node *temp = graph->adjList[dest];
-    while (temp->next)
-    {
-      temp = temp->next;
-    }
-    temp->next = newNode;
-  }
-
-  printf("%d -> %d edges are successfully connected", src, dest);
-  printf("\n%d -> %d edges are successfully connected", dest, src);
-
-  return graph;
-}
-void deleteEdge(Graph *graph)
-{
-  int src, dest;
-  printf("\nEnter delete() src -> dest : ");
+A:
+  printf("\nEnter src -> dest for delete() : ");
   scanf("%d %d", &src, &dest);
-
-  // Boundary check
-  if (src >= graph->vertices || dest >= graph->vertices || src < 0 || dest < 0)
+  if (src < 0 || dest < 0 || src >= vertices || dest >= vertices)
   {
-    printf("\nInvalid SRC or DEST");
-    return;
+    printf("\nInvalid src to dest");
+    goto A;
   }
-
-  // ---------- Delete dest from src's list ----------
-  Node *temp = graph->adjList[src];
-  Node *prev = NULL;
-  while (temp != NULL && temp->vertex != dest)
-  {
-    prev = temp;
-    temp = temp->next;
-  }
-
-  if (temp != NULL)
-  {
-    if (prev == NULL)
-    {
-      graph->adjList[src] = temp->next;
-    }
-    else
-    {
-      prev->next = temp->next;
-    }
-    free(temp);
-  }
-
-  // ---------- Delete src from dest's list ----------
-  temp = graph->adjList[dest];
-  prev = NULL;
-  while (temp != NULL && temp->vertex != src)
-  {
-    prev = temp;
-    temp = temp->next;
-  }
-
-  if (temp != NULL)
-  {
-    if (prev == NULL)
-    {
-      graph->adjList[dest] = temp->next;
-    }
-    else
-    {
-      prev->next = temp->next;
-    }
-    free(temp);
-  }
-
-  printf("%d -> %d edge successfully deleted", src, dest);
-  printf("\n%d -> %d edge successfully deleted", dest, src);
+  adjMatrix[src][dest] = 0;
+  adjMatrix[dest][src] = 0;
+  printf("\n%d -> %d successfully deleted", src, dest);
+  return adjMatrix;
 }
-
-void printGraph(Graph *graph)
+void printAdjMatrix(int **adjMatrix, int vertices)
 {
-  Node *temp;
-  printf("\nGraph : ");
-  for (int i = 0; i < graph->vertices; i++)
+  printf("\nAdj Matrix : \n");
+  for (int i = 0; i < vertices; i++)
   {
-    temp = graph->adjList[i];
-    printf("\nvetex %d : ", i);
-    while (temp)
+    for (int j = 0; j < vertices; j++)
     {
-      printf("%d -> ", temp->vertex);
-      temp = temp->next;
+      printf("%d ", adjMatrix[i][j]);
     }
-    printf("NULL");
+    printf("\n");
+  }
+}
+void BFS(int **adjMatrix, int vertices, int st)
+{
+  int *queue, *visited;
+  queue = (int *)malloc(sizeof(int) * vertices);
+  visited = (int *)malloc(sizeof(int) * vertices);
+  for (int i = 0; i < vertices; i++)
+  {
+    visited[i] = 0;
+  }
+  int front, rear;
+  int current;
+  front = rear = 0;
+
+  queue[rear++] = st;
+  visited[st] = 1;
+
+  printf("\nBFS : ");
+  while (front < rear)
+  {
+    current = queue[front++];
+    printf(" %d", current);
+    for (int i = 0; i < vertices; i++)
+    {
+      if (adjMatrix[current][i] == 1 && visited[i] == 0)
+      {
+        visited[i] = 1;
+        queue[rear++] = i;
+      }
+    }
+  }
+}
+void DFS(int **adjMatrix, int vertices, int current)
+{
+  printf(" %d", current);
+  visited[current] = 1;
+  for (int i = 0; i < vertices;i++){
+    if(adjMatrix[current][i]==1 && visited[i]==0){
+      DFS(adjMatrix, vertices, i);
+    }
   }
 }
 int main()
 {
-  int vertices;
-  printf("\nEnter No. of vertices : ");
-  scanf("%d", &vertices);
-  Graph *newGraph = createGraph(vertices);
-  printf("\n1.insert Edge (src->dest)");
-  printf("\n2.Print Graph");
-  printf("\n3.delete Edges");
-  printf("\n4.Exit");
   int ch;
-  do
+  int vertices;
+  int **adjMatrix = NULL;
+  printf("1.createGraph");
+  printf("\n2.insertEdges");
+  printf("\n3.deleteEdges");
+  printf("\n4.printAdjMatrix");
+  printf("\n5.BFS()");
+  printf("\n6.DFS()");
+  printf("\n7.Exited()");
+
+  while (1)
   {
-    printf("\n\nEnter Your choice : ");
+    printf("\nEnter choise : ");
     scanf("%d", &ch);
+
     switch (ch)
     {
     case 1:
-      addEdge(newGraph);
+      printf("\nEnter no. of vertices : ");
+      scanf("%d", &vertices);
+      adjMatrix = createGraph(adjMatrix, vertices);
       break;
     case 2:
-      printGraph(newGraph);
+      adjMatrix = insertEdges(adjMatrix, vertices);
       break;
     case 3:
-      deleteEdge(newGraph);
+      adjMatrix = deleteEdges(adjMatrix, vertices);
       break;
     case 4:
+      printAdjMatrix(adjMatrix,vertices);
+      break;
+    case 5:
+      BFS(adjMatrix, vertices, 0);
+      break;
+    case 6:
+      visited = (int *)malloc(sizeof(int) * vertices);
+      for (int i = 0; i < vertices; i++)
+      {
+        visited[i] = 0;
+      }
+      printf("\nDFS : ");
+      DFS(adjMatrix, vertices, 0);
+      break;
+    case 7:
       printf("\nExited...");
       break;
     default:
-      printf("\nInvlid choice!!");
+      printf("\nInvalid choise!!!");
       break;
     }
-  } while (ch != 4);
+  }
   return 0;
 }
