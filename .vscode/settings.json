@@ -1,11 +1,13 @@
 {
-    "files.associations": {
-        "iostream": "cpp",
-        "ostream": "cpp",
-        "new": "cpp",
-        "stdio.h": "c"
-    },
-    "C_Cpp.errorSquiggles": "enabled",
-    "editor.fontFamily": "\"JetBrains Mono\"",
-    "editor.fontSize": 12
+  "files.associations": {
+    "iostream": "cpp",
+    "ostream": "cpp",
+    "new": "cpp",
+    "stdio.h": "c"
+  },
+  "C_Cpp.errorSquiggles": "enabled",
+  "editor.fontFamily": "\"JetBrains Mono\"",
+  "editor.fontSize": 12,
+  "editor.codeLensFontFamily": "Monaco",
+  "editor.inlayHints.fontFamily": "Monaco"
 }
